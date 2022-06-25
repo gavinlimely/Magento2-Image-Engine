@@ -1,0 +1,22 @@
+{
+    "name": "limelyltd/module-image-engine",
+    "description": "ImageEngine module for Magento2",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "gavin@limely.co.uk",
+            "name": "Limely"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Limely\\ImageEngine\\": ""
+        }
+    }
+}
