@@ -9,6 +9,13 @@ use Magento\Framework\View\Asset\Repository as BaseRepository;
 class Repository {
 
     /**
+     * Helper
+     * 
+     * @var Data
+     */
+    protected $helper;
+
+    /**
      * Store manager
      *
      * @var StoreManager
@@ -18,9 +25,14 @@ class Repository {
     /**
      * Constructor - inject dependencies
      * 
+     * @param Data $helper
      * @param StoreManager $storeManager
      */
-    public function __construct(StoreManager $storeManager) {
+    public function __construct(
+        Data $helper,
+        StoreManager $storeManager
+    ) {
+        $this->helper = $helper;
         $this->storeManager = $storeManager;
     }
 
