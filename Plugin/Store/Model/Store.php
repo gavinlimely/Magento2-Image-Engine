@@ -32,10 +32,10 @@ class Store {
      * @param string $type
      * @return string
      */
-    public function afterGetBaseUrl(BaseStore $store, $result, $type) {
+    public function afterGetBaseUrl(BaseStore $store, $result, $type = null) {
         if ($this->helper->isEnabled()) {
             if ($type == UrlInterface::URL_TYPE_MEDIA) {
-                $return = str_replace($store->getBaseUrl(), $this->helper->getEngineUrl(), $return);
+                $result = str_replace(rtrim($store->getBaseUrl(), '/'), rtrim($this->helper->getEngineUrl(), '/'), $result);
             }
         }
         return $result;
