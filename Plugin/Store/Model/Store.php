@@ -35,7 +35,7 @@ class Store {
     public function afterGetBaseUrl(BaseStore $store, $result, $type = null) {
         if ($this->helper->isEnabled()) {
             if ($type == UrlInterface::URL_TYPE_MEDIA) {
-                $result = str_replace(rtrim($store->getBaseUrl(), '/'), rtrim($this->helper->getEngineUrl(), '/'), $result);
+                $result = str_replace(rtrim($store->getBaseUrl(), '/'), $this->helper->getEngineUrl(), $result);
             }
         }
         return $result;

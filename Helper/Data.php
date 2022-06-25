@@ -17,10 +17,15 @@ class Data extends AbstractHelper {
     }
 
     /**
+     * Get engine URL
+     * 
      * @return string
      */
     public function getEngineUrl() {
-        return $this->scopeConfig->getValue('image_engine/settings/engine_url', ScopeInterface::SCOPE_STORE);
+        $url = $this->scopeConfig->getValue('image_engine/settings/engine_url', ScopeInterface::SCOPE_STORE);
+        if ($url) {
+            return rtrim($url, '/');
+        }
     }
 
     /**

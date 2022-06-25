@@ -47,7 +47,7 @@ class Repository {
         if ($this->helper->isEnabled()) {
             $store = $this->storeManager->getStore();
             if ($store && $this->isImage($return)) {
-                $return = str_replace($store->getBaseUrl(), $this->helper->getEngineUrl(), $return);
+                $return = str_replace(rtrim($store->getBaseUrl(), '/'), $this->helper->getEngineUrl(), $return);
             }
         }
         return $return;
