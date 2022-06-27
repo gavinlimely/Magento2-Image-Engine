@@ -12,4 +12,9 @@
                 type="Limely\ImageEngine\Plugin\Store\Model\Store" />
     </type>
     
+    <type name="Magento\Catalog\Model\Category">
+        <plugin name="Limely\ImageEngine\Plugin\Catalog\Model\Category"
+                type="Limely\ImageEngine\Plugin\Catalog\Model\Category" />
+    </type>
+    
 </config>
