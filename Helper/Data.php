@@ -3,9 +3,31 @@
 namespace Limely\ImageEngine\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\State;
 
 class Data extends AbstractHelper {
+    
+    /**
+     * State
+     * 
+     * @var State
+     */
+    protected $state;
+    
+    /**
+     * Constructor - inject dependencies
+     * 
+     * @param Context $context
+     * @param State $state
+     */
+    public function __construct(
+        Context $context,
+        State $state
+    ) {     
+        parent::__construct($context);
+        $this->state = $state;
+    }
 
     /**
      * Is enabled check
@@ -13,6 +35,9 @@ class Data extends AbstractHelper {
      * @return boolean
      */
     public function isEnabled() {
+        if ($this->state->getAreaCode() === \Magento\Framework\App\Area::AREA_ADMINHTML) {
+            return false;
+        }
         return !!($this->getEnabled() && $this->getEngineUrl());
     }
 
@@ -22,7 +47,7 @@ class Data extends AbstractHelper {
      * @return string
      */
     public function getEngineUrl() {
-        $url = $this->scopeConfig->getValue('image_engine/settings/engine_url', ScopeInterface::SCOPE_STORE);
+        $url = $this->scopeConfig->getValue('image_engine/settings/engine_url', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         if ($url) {
             return rtrim($url, '/');
         }
@@ -34,7 +59,7 @@ class Data extends AbstractHelper {
      * @return int
      */
     public function getEnabled() {
-        return $this->scopeConfig->getValue('image_engine/settings/enabled', ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue('image_engine/settings/enabled', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
 }
