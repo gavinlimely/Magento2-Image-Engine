@@ -34,8 +34,12 @@ class Data extends AbstractHelper {
      * 
      * @return boolean
      */
-    public function isEnabled() {
-        if ($this->state->getAreaCode() === \Magento\Framework\App\Area::AREA_ADMINHTML) {
+    public function isEnabled() {        
+        try {
+            if ($this->state->getAreaCode() === \Magento\Framework\App\Area::AREA_ADMINHTML) {
+                throw new \Exception('Admin state');
+            }
+        } catch (\Exception $e) {
             return false;
         }
         return !!($this->getEnabled() && $this->getEngineUrl());
