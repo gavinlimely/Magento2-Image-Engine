@@ -28,7 +28,7 @@ class Data extends AbstractHelper {
         parent::__construct($context);
         $this->state = $state;
     }
-
+    
     /**
      * Is enabled check
      * 
