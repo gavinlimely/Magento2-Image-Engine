@@ -19,7 +19,7 @@
     
     <type name="Limely\Theme\Helper\Data">
         <plugin name="Limely\ImageEngine\Plugin\Theme\Helper\Data"
-                type="Limely\ImageEngine\Plugin\Theme\Helper\Data />
+                type="Limely\ImageEngine\Plugin\Theme\Helper\Data" />
     </type>
     
 </config>
