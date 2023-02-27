@@ -3,6 +3,7 @@
 namespace Limely\ImageEngine\Plugin\Theme\Helper;
 
 use Limely\ImageEngine\Helper\Data as Helper;
+use Magento\Store\Model\StoreManager;
 
 class Data {
 
@@ -27,8 +28,8 @@ class Data {
      * @param StoreManager $storeManager
      */
     public function __construct(
-        Helper $helper,
-        StoreManager $storeManager
+            Helper $helper,
+            StoreManager $storeManager
     ) {
         $this->helper = $helper;
         $this->storeManager = $storeManager;
